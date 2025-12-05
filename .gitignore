@@ -1,0 +1,27 @@
+# Ignore huge model files
+models/
+checkpoints/
+loras/
+vae/
+clip/
+controlnet/
+
+# Ignore ComfyUI runtime data
+input/
+output/
+temp/
+cache/
+logs/
+
+# Ignore environments
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# macOS junk
+.DS_Store
+
+# Ignore the app
+ComfyUI.app/
+
