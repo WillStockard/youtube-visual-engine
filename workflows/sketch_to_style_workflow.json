@@ -1,0 +1,109 @@
+{
+  "last_node_id": 9,
+  "last_link_id": 10,
+  "nodes": [
+    {
+      "id": 0,
+      "type": "Load Image",
+      "pos": [0, -300],
+      "size": [210, 60],
+      "flags": {},
+      "widgets_values": ["input/sketch.png"],
+      "label": "Sketch Image"
+    },
+    {
+      "id": 1,
+      "type": "Load Image",
+      "pos": [260, -300],
+      "size": [210, 60],
+      "flags": {},
+      "widgets_values": ["input/reference.png"],
+      "label": "Reference Image"
+    },
+    {
+      "id": 2,
+      "type": "VAE Encode",
+      "pos": [260, -200],
+      "size": [210, 60],
+      "flags": {},
+      "widgets_values": [],
+      "label": "Encode Reference"
+    },
+    {
+      "id": 3,
+      "type": "ControlNet Preprocess",
+      "pos": [0, -200],
+      "size": [210, 60],
+      "flags": {},
+      "widgets_values": ["scribble"],
+      "label": "Preprocess Sketch"
+    },
+    {
+      "id": 4,
+      "type": "Load ControlNet Model",
+      "pos": [260, -100],
+      "size": [210, 60],
+      "flags": {},
+      "widgets_values": ["control_v11p_sd15_scribble"],
+      "label": "ControlNet Model"
+    },
+    {
+      "id": 5,
+      "type": "Load Checkpoint",
+      "pos": [520, -300],
+      "size": [210, 60],
+      "flags": {},
+      "widgets_values": ["sd15.safetensors"],
+      "label": "Base Model"
+    },
+    {
+      "id": 6,
+      "type": "Load VAE",
+      "pos": [520, -200],
+      "size": [210, 60],
+      "flags": {},
+      "widgets_values": ["vae-ft-mse-840000-ema-pruned.safetensors"],
+      "label": "VAE"
+    },
+    {
+      "id": 7,
+      "type": "CLIP Text Encode",
+      "pos": [520, -100],
+      "size": [210, 60],
+      "flags": {},
+      "widgets_values": ["", "a detailed painting that matches the reference style"],
+      "label": "Prompt"
+    },
+    {
+      "id": 8,
+      "type": "KSampler",
+      "pos": [520, 0],
+      "size": [210, 60],
+      "flags": {},
+      "widgets_values": [7.5, 20, "euler", "normal", 1.0],
+      "label": "Sampler"
+    },
+    {
+      "id": 9,
+      "type": "VAE Decode",
+      "pos": [780, 0],
+      "size": [210, 60],
+      "flags": {},
+      "widgets_values": [],
+      "label": "Decode"
+    }
+  ],
+  "links": [
+    [0, 0, 0, 3, 0],
+    [1, 1, 0, 2, 0],
+    [2, 2, 0, 8, 0],
+    [3, 3, 0, 4, 0],
+    [4, 4, 0, 8, 1],
+    [5, 5, 0, 8, 2],
+    [6, 6, 0, 2, 1],
+    [6, 6, 0, 9, 1],
+    [7, 7, 0, 8, 3],
+    [7, 7, 1, 8, 4],
+    [8, 8, 0, 9, 0]
+  ]
+}
